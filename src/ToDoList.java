@@ -1,21 +1,18 @@
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class ToDoList {
 
-    private ArrayList<String> toDo= new ArrayList<String>();
+    private List<Task> toDo= new ArrayList<>();
 
-    public ToDoList(ArrayList<String> toDo){
-        this.toDo = toDo;
-    }
 
-    public void addToDo(String task){
+    public void addToDo(Task task){
         toDo.add(task);
     }
     public void printList(){
 
-        for (String list: toDo){
-            System.out.println("*  " + list);
+        for (Task list: toDo){
+            System.out.println("*  " + list.getTitle());
         }
 
     }
