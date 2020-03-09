@@ -1,10 +1,14 @@
 import java.util.Date;
+import java.io.Serializable;
 
-public class Task {
+public class Task implements Serializable {
 
     private String title;
     private Date dueDate;
     private String status;
+    private String projectName;
+
+
 
     public String getTitle() {
         return title;
@@ -12,6 +16,14 @@ public class Task {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getProjectName(){
+        return projectName;
+    }
+
+    public void setProjectName(String setProjectName) {
+        projectName = setProjectName;
     }
 
     public Date getDueDate() {
@@ -26,7 +38,7 @@ public class Task {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String setStatus) {
+        this.status = setStatus;
     }
 }
