@@ -4,11 +4,10 @@ import java.io.Serializable;
 public class Task implements Serializable {
 
     private String title;
-    private Date dueDate;
-    private String status;
+    private Date dueDate = new Date(); //TODO: consider using a constructor for this class
+    private Status status = Status.PENDING;
     private String projectName;
-
-
+    private static final long serialVersionUID = 8367141910137788612L;
 
     public String getTitle() {
         return title;
@@ -30,15 +29,13 @@ public class Task implements Serializable {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
-    }
+    public void setDueDate(Date dueDate) { this.dueDate = dueDate;}
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String setStatus) {
+    public void setStatus(Status setStatus) {
         this.status = setStatus;
-    }
+   }
 }

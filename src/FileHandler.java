@@ -1,5 +1,6 @@
 import java.io.*;
 import java.io.BufferedReader;
+import java.util.List;
 import java.util.Vector;
 import java.util.Iterator;
 
@@ -64,23 +65,44 @@ public class FileHandler {
             }
             */
 
-            public void saveToFile() throws IOException, FileNotFoundException, ClassNotFoundException {
-                Task task = new Task();
-                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ToDo.txt"));
-                 out.writeObject(task);
+    public List<Task> loadFromFile() throws IOException, ClassNotFoundException {
 
-                 ObjectInputStream in = new ObjectInputStream(new FileInputStream("ToDo.txt"));
-                 Task task2 = (Task) in.readObject();
+        //TODO: handle FileNotFound
+        //TODO: handle empty file
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("ToDo.txt"));
+        List<Task> loadedTasks = (List<Task>) in.readObject();
+        return loadedTasks;
+    }
 
-                System.out.println("Task: " + task2.getTitle() +
-                        " Project: " + task2.getProjectName() +
-                        " Status: " + task2.getStatus() +
-                        " Date " + task2.getDueDate()
-                );
+    public void saveToFile(List<Task> tasksToSave) throws IOException, FileNotFoundException, ClassNotFoundException {
 
-        }
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ToDo.txt"));
+        out.writeObject(tasksToSave);
 
-        }
+        System.out.println("Tasks saved:");
+        tasksToSave.forEach(task -> System.out.println("Task: " + task.getTitle() +
+                        " Project: " + task.getProjectName() +
+                        " Status: " + task.getStatus() +
+                        " Date " + task.getDueDate()
+                )
+
+        );
+
+        /*
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("ToDo.txt"));
+        Task task2 = (Task) in.readObject();
+
+        System.out.println("Task: " + task2.getTitle() +
+                " Project: " + task2.getProjectName() +
+                " Status: " + task2.getStatus() +
+                " Date " + task2.getDueDate()
+        );
+
+         */
+
+    }
+
+}
 
 
 
