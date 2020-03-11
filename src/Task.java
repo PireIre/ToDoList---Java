@@ -38,4 +38,5 @@ public class Task implements Serializable {
     public void setStatus(Status setStatus) {
         this.status = setStatus;
    }
+
 }

@@ -79,13 +79,9 @@ public class FileHandler {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ToDo.txt"));
         out.writeObject(tasksToSave);
 
-        System.out.println("Tasks saved:");
-        tasksToSave.forEach(task -> System.out.println("Task: " + task.getTitle() +
-                        " Project: " + task.getProjectName() +
-                        " Status: " + task.getStatus() +
-                        " Date " + task.getDueDate()
-                )
-
+        System.out.println("TASKS SAVED:");
+        System.out.println();
+        tasksToSave.forEach(task -> System.out.println("* " + task.getTitle())
         );
 
         /*

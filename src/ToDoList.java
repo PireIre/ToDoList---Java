@@ -1,7 +1,6 @@
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class ToDoList {
 
@@ -11,18 +10,114 @@ public class ToDoList {
         toDo.add(task);
     }
 
-    public void printList() {
-        System.out.println("\tTASKS" + "\t\t\t\t" + "\tPROJECT" + "\t\t\t\t" + "\tSTATUS" + "\t\t\t\t" + "\tDUE DATE");
+    public void printHeading() {
+        System.out.print(String.format("%1$-27s", "TASK"));
+        System.out.print(String.format("%1$-27s", "PROJECT"));
+        System.out.print(String.format("%1$-27s", "STATUS"));
+        System.out.println("DUE DATE");
         System.out.println("-----------------------------------------------------------------------------------------");
+    }
+
+
+    public void printEntireUnorderedList() {
+        //ADD PRINT BY PROJECT METHOD
+        // ADD PRINT BY DATE METHOD
+        printHeading();
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 
-
         for (Task list : toDo) {
-            System.out.println(toDo.indexOf(list) + 1 + "  " + list.getTitle() + "\t\t\t\t" + list.getProjectName() +
-                    "\t\t\t\t" + list.getStatus() + "\t\t\t\t" + sdf.format(list.getDueDate())); //TODO: use String.format() instead
+            System.out.print(toDo.indexOf(list) + 1 + ". ");
+            System.out.print(String.format("%1$-25s", list.getTitle()));
+            System.out.print(String.format("%1$-25s", list.getProjectName()));
+            System.out.print(String.format("%1$-25s", list.getStatus()));
+            System.out.print(String.format("%1$-25s", sdf.format(list.getDueDate())));
+            System.out.println("");
         }
 
     }
+
+    public void printTasksThatArePending() {
+        printHeading();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+
+        for (Task list : toDo) {
+            if (list.getStatus() == Status.PENDING) {
+                System.out.print(toDo.indexOf(list) + 1 + ". ");
+                System.out.print(String.format("%1$-25s", list.getTitle()));
+                System.out.print(String.format("%1$-25s", list.getProjectName()));
+                System.out.print(String.format("%1$-25s", list.getStatus()));
+                System.out.print(String.format("%1$-25s", sdf.format(list.getDueDate())));
+                System.out.println("");
+            }
+        }
+    }
+
+    public void printTasksThatAreDone() {
+        printHeading();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+
+        for (Task list : toDo) {
+            if (list.getStatus() == Status.DONE) {
+                System.out.print(toDo.indexOf(list) + 1 + ". ");
+                System.out.print(String.format("%1$-25s", list.getTitle()));
+                System.out.print(String.format("%1$-25s", list.getProjectName()));
+                System.out.print(String.format("%1$-25s", list.getStatus()));
+                System.out.print(String.format("%1$-25s", sdf.format(list.getDueDate())));
+                System.out.println("");
+            }
+        }
+    }
+
+    public void printTaskByDate() {
+        printHeading();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+
+        toDo.sort(Comparator.comparing(o -> o.getDueDate()));
+
+        for (Task list : toDo) {
+
+                System.out.print(toDo.indexOf(list) + 1 + ". ");
+                System.out.print(String.format("%1$-25s", list.getTitle()));
+                System.out.print(String.format("%1$-25s", list.getProjectName()));
+                System.out.print(String.format("%1$-25s", list.getStatus()));
+                System.out.print(String.format("%1$-25s", sdf.format(list.getDueDate())));
+                System.out.println("");
+
+            }
+        }
+
+    public void printOnlyIndexAndNameOfTask() {
+        for (Task list : toDo) {
+            System.out.print(toDo.indexOf(list) + 1 + ". ");
+            System.out.println(String.format("%1$-25s", list.getTitle()));
+        }
+    }
+
+    public void printIndexAndNameAndProjectOfTask() {
+        for (Task list : toDo) {
+            System.out.print(toDo.indexOf(list) + 1 + ". ");
+            System.out.print(String.format("%1$-25s", list.getTitle()));
+            System.out.print(String.format("%1$-25s", list.getProjectName()));
+            System.out.println();
+        }
+    }
+
+    public void printIndexAndNameAndDueDateOfTask() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+
+        for (Task list : toDo) {
+            System.out.print(toDo.indexOf(list) + 1 + ". ");
+            System.out.print(String.format("%1$-25s", list.getTitle()));
+            System.out.print(String.format("%1$-25s", sdf.format(list.getDueDate())));
+            System.out.println();
+        }
+    }
+
+    public void remove(int index) {
+        toDo.remove(index);
+    }
+
 
     public void setToDo(List<Task> newTasks) {
         toDo = newTasks;
@@ -31,4 +126,9 @@ public class ToDoList {
     public List<Task> getToDo() {
         return toDo;
     }
+
+    public Task getTaskInToDo(int index) {
+        return toDo.get(index);
+    }
 }
+
