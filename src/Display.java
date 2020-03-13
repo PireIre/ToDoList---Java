@@ -19,6 +19,11 @@ public class Display {
         toDoTask.setToDo(fileHandler.loadFromFile());
     }
 
+    public void start(){
+        startingDisplay();
+        response();
+    }
+
     public void startingDisplay() {
 
         System.out.println("Welcome to ToDoLy");
@@ -191,15 +196,16 @@ public class Display {
 
     public void printList(){
         System.out.println("Here you can print list sorted by:");
-        System.out.println("(1): Order of when they were added to the system");
+        System.out.println("(1): Print ALL");
         System.out.println("(2): All tasks that are PENDING");
         System.out.println("(3): All tasks that are DONE");
-        System.out.println("(4): Date");
+        System.out.println("(4): Print task by PROJECT:");
+        System.out.println("(5): Date");
 
         String howToSort = reader.nextLine();
 
         if (howToSort.equals("1")){
-            toDoTask.printEntireUnorderedList();
+            toDoTask.printEntireList();
         }
         else if (howToSort.equals("2")){
             toDoTask.printTasksThatArePending();
@@ -208,6 +214,9 @@ public class Display {
             toDoTask.printTasksThatAreDone();
         }
         else if(howToSort.equals("4")){
+            toDoTask.printTasksByProject();
+        }
+        else if(howToSort.equals("5")){
             toDoTask.printTaskByDate();
         }
 

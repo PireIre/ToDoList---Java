@@ -6,8 +6,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Display display = new Display();
 
-        display.startingDisplay();
-        display.response();
+       display.start();
 
 
     }
