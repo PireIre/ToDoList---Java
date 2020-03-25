@@ -4,7 +4,8 @@ import java.io.Serializable;
 public class Task implements Serializable {
 
     private String title;
-    private Date dueDate = new Date(); //TODO: consider using a constructor for this class
+    private Date dueDate = new Date();
+    private Date createdDate = new Date();
     private Status status = Status.PENDING;
     private String projectName;
     private static final long serialVersionUID = 8367141910137788612L;
@@ -38,5 +39,9 @@ public class Task implements Serializable {
     public void setStatus(Status setStatus) {
         this.status = setStatus;
    }
+
+    public Date getCreatedDate() { return createdDate;}
+
+    public void setCreatedDate(Date createdDate) { this.createdDate = createdDate;}
 
 }
