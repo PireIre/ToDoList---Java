@@ -27,4 +27,4 @@ The user manual for this project can be found [HERE](https://git.2020.school/ire
 
 ## Class Diagram
  
-![Class Diagram for ToDo Application](https://git.2020.school/irenej_bozovicar/ip/-/blob/master/Class%20Diagram.png) "Class Diagram for ToDo Application"
+![alt text](https://git.2020.school/irenej_bozovicar/ip/-/blob/master/Class%20Diagram.png "Class Diagram for ToDo Application")
