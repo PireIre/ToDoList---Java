@@ -18,10 +18,10 @@ User is also able to edit a Task:
 
 When user quits the application, task list is saved to .txt file. Whenever application is started, that file first gets loaded.
 
-##Motivation
+## Motivation
 This was an individual project during Software Development Academy.
 
-##User Manual 
+## User Manual 
 
 The user manual for this project can be found [HERE](https://git.2020.school/irenej_bozovicar/ip/-/blob/master/USER_MANUAL.md) 
 
