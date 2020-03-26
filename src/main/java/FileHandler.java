@@ -19,9 +19,6 @@ public class FileHandler {
 
     public List<Task> loadFromFile() throws IOException, ClassNotFoundException {
 
-        //TODO: handle FileNotFound
-        //TODO: handle empty file
-
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("ToDo.txt"));
             List<Task> loadedTasks = (List<Task>) in.readObject();
