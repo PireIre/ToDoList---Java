@@ -1,9 +1,19 @@
-
 import java.io.*;
 import java.util.List;
 
+/**
+ * A class that loads and saves to a file .txt file.
+ * @author  Irenej Bozovicar
+ * @version 2020.03.26
+ */
+
 
 public class FileHandler {
+
+    /**
+     * Method that retrieves information from already created file.
+     * @return List, representing previously saved Task objects.
+     */
 
 
     public List<Task> loadFromFile() throws IOException, ClassNotFoundException {
@@ -23,6 +33,10 @@ public class FileHandler {
         return null;
 
     }
+
+    /**
+     * Method that updates the file and saves it for possibility of further manipulation.
+     */
 
     public void saveToFile(List<Task> tasksToSave) throws IOException {
 

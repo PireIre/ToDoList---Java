@@ -4,6 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * This class is part of the ToDo application.
+ * ToDo is a very simple, text based todo list application.
+ *
+ * This class bring everything together and deals with main functionality
+ * of the program.
+ *
+ * @author  Irenej Bozovicar
+ * @version 2020.03.26
+ */
+
 public class Display {
 
     private Scanner reader;
@@ -12,8 +23,12 @@ public class Display {
     private Print printer;
     private SimpleDateFormat sdf;
 
+    /**
+     * Constructor of Display class.
+     * Creates a new Display, which loads previously saved file.
+     */
 
-    Display() throws IOException, ClassNotFoundException {
+    public Display() throws IOException, ClassNotFoundException {
         reader = new Scanner(System.in);
         toDoList = new ToDoList();
         fileSave = new FileHandler();
@@ -24,16 +39,29 @@ public class Display {
         printer = new Print(toDoList.getToDoList());
     }
 
-
+    /**
+     * Method asks for user input and
+     * returns it.
+     */
 
     public String userInput() {
         return reader.nextLine();
     }
 
+    /**
+     * Method that welcomes the user into the application
+     * and gives them possible options.
+     */
+
     public void start() throws IOException, ClassNotFoundException {
         printer.printWelcome();
         response();
     }
+
+    /**
+     * Method with the main routine that will keep program running
+     * until user wants to quit.
+     */
 
     public void response() {
         while (true) {
@@ -41,7 +69,7 @@ public class Display {
 
             switch (userInput()) {
                 case "1":
-                    printList();
+                    orderListOptions();
                     break;
                 case "2":
                     addTask();
@@ -61,6 +89,11 @@ public class Display {
 
     }
 
+    /**
+     * Method adds the Task into the list of tasks.
+     * It records the date task was created and correct
+     * user if he/she enter dueDate in wrong format.
+     */
 
     public void addTask() {
         System.out.println("Add New Task \n");
@@ -92,6 +125,10 @@ public class Display {
         System.out.println("Task: " + task.getTitle() + " was added");
     }
 
+    /**
+     * Method quits the application and saves the file.
+     */
+
     public void quitAndSave() {
         printer.printWhenQuitApplication();
         try {
@@ -99,10 +136,13 @@ public class Display {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void getProjectNumberAndMarkAsDone() {
+    /**
+     * Method changes status of task from PENDING to DONE.
+     */
+
+    public void getTaskNumberAndChangeItToDone() {
 
         System.out.println("What task do you want to mark as done?");
         printer.printOnlyIndexAndNameOfTask();
@@ -111,8 +151,8 @@ public class Display {
 
         while (true) {
             try {
-                int getProjectByNumber = Integer.parseInt(userInput());
-                searched = toDoList.getTaskInToDo(getProjectByNumber - 1);
+                int getTaskByNumber = Integer.parseInt(userInput());
+                searched = toDoList.getTaskInToDo(getTaskByNumber - 1);
                 break;
             } catch (Exception e) {
                 printer.printIndexOutOfReach();
@@ -123,10 +163,14 @@ public class Display {
         System.out.println("Task is now set to DONE");
     }
 
+    /**
+     * Method removes a task requested from a user from the list.
+     */
+
     public void removeTask() {
         System.out.println("What of the below project do you want to delete? \n");
         printer.printOnlyIndexAndNameOfTask();
-        System.out.println("\n Enter the number in front of the task");
+        System.out.println("\n Enter the number in front of the task you would like to delete");
 
         while (true) {
             try {
@@ -141,6 +185,11 @@ public class Display {
         System.out.println("Task is removed");
 
     }
+
+    /**
+     * Method had functionality of editing name, editing project and a editing due date.
+     */
+
 
     public void update() {
         //has a functionality of editing name, project and date of the project
@@ -161,6 +210,10 @@ public class Display {
                 update();
         }
     }
+
+    /**
+     * User can select a Task and change its name
+     */
 
     public void editName() {
         System.out.println("Here you can edit a name for one of your tasks:");
@@ -184,6 +237,10 @@ public class Display {
         System.out.println("Name edited to " + newName);
     }
 
+    /**
+     * User can select a Project a specific task is assigned to and change its name
+     */
+
     public void editProject() {
         System.out.println("Here you can edit a name of a project that your task is assigned to");
         printer.printIndexAndNameAndProjectOfTask();
@@ -205,6 +262,10 @@ public class Display {
         searched.setProjectName(newProject);
         System.out.println(searched.getTitle() + " now belongs to project: " + newProject);
     }
+
+    /**
+     * User can select a Task and change its due date.
+     */
 
     public void editDate() {
         System.out.println("Here you can edit due date of one of below tasks: ");
@@ -233,8 +294,14 @@ public class Display {
         }
     }
 
+    /**
+     * Method contains all functionality that goes into editing a task...
+     * Removing, Marking as Done, Updating
+     */
+
+
     public void editTask() {
-        //class with all edit subclasses
+        //method with all edit subclasses
         printer.printEditTaskOptions();
 
         switch (userInput()) {
@@ -242,7 +309,7 @@ public class Display {
                 removeTask();
                 break;
             case "2":
-                getProjectNumberAndMarkAsDone();
+                getTaskNumberAndChangeItToDone();
                 break;
             case "3":
                 update();
@@ -253,8 +320,13 @@ public class Display {
         }
     }
 
-    public void printList() {
-        printer.printPrintOptions();
+    /**
+     * Method is responsible for functionality on what what happens
+     * depending on how the user wants to sort the list.
+     */
+
+    public void orderListOptions() {
+        printer.printSortingOptions();
 
         switch (userInput()) {
             case "1":
@@ -270,11 +342,11 @@ public class Display {
                 printer.printTasksByProject();
                 break;
             case "5":
-                printer.printTaskByDate();
+                printer.printTaskByDueDate();
                 break;
             default:
                 printer.printNotValiableOption();
-                printList();
+                orderListOptions();
         }
     }
 
