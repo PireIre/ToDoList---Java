@@ -10,8 +10,8 @@ When the user starts the application, main menu is displayed:
 > Pending tasks: 7 | Completed tasks: 1
 >
 > Pick an option:
->---------------------------------------------
-> (1) Show Task List:
+> ---------------------------------------------
+> (1) Show Task List
 > (2) Add New Task
 > (3) Edit Task (remove, mark as done, update)
 > (4) Save and Quit
@@ -40,12 +40,12 @@ list of tasks any way that is preferred
 
 If user pressed (1), the show menu is displayed: 
 
->Here you can print list sorted by:
->(1): Print ALL
->(2): All tasks that are PENDING
->(3): All tasks that are DONE
->(4): Print task by PROJECT:
->(5): Due Date
+> Here you can print list sorted by:
+> (1): Print ALL
+> (2): All tasks that are PENDING
+> (3): All tasks that are DONE
+> (4): Print task by PROJECT:
+> (5): Due Date
 
 List is printed in an order selected by the user. 
 
@@ -64,7 +64,7 @@ task into the list of tasks.
 >Due date? (MM-dd-yyyy)
 
 If format is not correct, the application will report:
->Input of date was in wrong format. REQUIRED FORMAT: (MM-dd-yyyy) 
+> Input of date was in wrong format. REQUIRED FORMAT: (MM-dd-yyyy) 
 
 until the user enters "Due Date" in correct format. 
 
@@ -72,9 +72,9 @@ until the user enters "Due Date" in correct format.
 
 Upon pressing (3) in Main Menu, user will be given following options: 
 
->Press (1) for removing items from the list
->Press (2) for marking tasks as done
->Press (3) for updating tasks
+> Press (1) for removing items from the list
+> Press (2) for marking tasks as done
+> Press (3) for updating tasks
 
 * If user presses (1), the following message will appear.
 
@@ -92,11 +92,11 @@ When he selects valiable number, task will get removed.
 
 * If user presses (2), the following message will appear.
 
->What task do you want to mark as done?
->1. Example 1         
->2. Example 2            
+> What task do you want to mark as done?
+> 1. Example 1         
+> 2. Example 2            
 >            
->Enter the number in front of the task
+> Enter the number in front of the task
 
 If user does not enter valiable index, same message will appear as it did before. 
 
@@ -109,9 +109,9 @@ When user enters valiable index, that task's status will be changed to DONE.
 
 Update menu looks like this: 
 
->Press (1) for editing task name
->Press (2) for editing project name of a specific task
->Press (3) for editing due date of a task
+> Press (1) for editing task name
+> Press (2) for editing project name of a specific task
+> Press (3) for editing due date of a task
 
 ALl options are based on the same principle. Firstly, list of tasks will appear with indexes. Based on the selected index from the user, he/she will be able to change appropraite field. 
 
@@ -119,10 +119,10 @@ ALl options are based on the same principle. Firstly, list of tasks will appear 
 
 If the user pressed (4) in Main Menu, the ToDo list will be saved in a file (This file will then be loaded when user starts the program from the beginning). Once the file is saved, program prints the following message and stops executing: 
 
->You have quit the application, your TO-DO list is saved.
->TASKS SAVED:
+> You have quit the application, your TO-DO list is saved.
+> TASKS SAVED:
 
->* Example 1
->* Example 2
+> * Example 1
+> * Example 2
 
      

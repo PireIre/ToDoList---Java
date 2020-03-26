@@ -23,9 +23,8 @@ This was an individual project during Software Development Academy.
 
 ##User Manual 
 
-The user manual for this project can be found here: 
+The user manual for this project can be found [HERE](https://git.2020.school/irenej_bozovicar/ip/-/blob/master/USER_MANUAL.md) 
 
 ## Class Diagram
  
---Insert here--
-
+![Class Diagram for ToDo Application]()

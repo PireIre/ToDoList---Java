@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +29,11 @@ public class FileHandler {
         }
         catch (EOFException e){
             System.out.println("File is empty. First thing you need to do is create a task!");
+        }
+        catch (FileNotFoundException e){
+            List<Task> list = new ArrayList<Task>();
+            saveToFile(list);
+
         }
 
         return null;
