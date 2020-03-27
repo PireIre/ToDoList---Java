@@ -73,12 +73,12 @@ public class Print {
         System.out.println("Select a Project below, by typing its name:");
 
         printIndexAndNameAndProjectOfTask();
-        String project = reader.nextLine().toLowerCase();
+        String project = reader.nextLine().toLowerCase().trim();
 
         printHeading();
 
         listOfToDos.stream()
-                .filter(task -> task.getProjectName().toLowerCase().equals(project))
+                .filter(task -> task.getProjectName().toLowerCase().trim().equals(project))
                 .forEach(this::printBody);
 
     }
