@@ -6,12 +6,12 @@ This is a simple ToDo list application.
 
 This is a text based user interface application. 
 
-It allows user to create a Task by:
+It allows user to create a ToDoApp.Task by:
 * Giving name of a title
 * Assigning it to a project
 * Selecting a Due Date for the task
 
-User is also able to edit a Task:
+User is also able to edit a ToDoApp.Task:
 * Update name/project/due Date
 * Removing the task from the list
 * Marking task as done

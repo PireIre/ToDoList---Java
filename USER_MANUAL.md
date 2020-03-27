@@ -2,7 +2,7 @@
 
 This is the user manual for ToDo Application.
 
-## 1.Main Menu
+## 1.ToDoApp.Main Menu
 
 When the user starts the application, main menu is displayed:
 
@@ -11,9 +11,9 @@ When the user starts the application, main menu is displayed:
 >
 > Pick an option:
 > ---------------------------------------------
-> (1) Show Task List
-> (2) Add New Task
-> (3) Edit Task (remove, mark as done, update)
+> (1) Show ToDoApp.Task List
+> (2) Add New ToDoApp.Task
+> (3) Edit ToDoApp.Task (remove, mark as done, update)
 > (4) Save and Quit
 
 On the top, user can see displayed number of tasks that
@@ -41,25 +41,25 @@ list of tasks any way that is preferred
 If user pressed (1), the show menu is displayed: 
 
 > Here you can print list sorted by:
-> (1): Print ALL
+> (1): ToDoApp.Print ALL
 > (2): All tasks that are PENDING
 > (3): All tasks that are DONE
-> (4): Print task by PROJECT:
+> (4): ToDoApp.Print task by PROJECT:
 > (5): Due Date
 
 List is printed in an order selected by the user.
-(If 0 is pressed, user will go back to Main Menu)
+(If 0 is pressed, user will go back to ToDoApp.Main Menu)
 
 Once list has been order, and once user presses Enter, the application returns to main menu. 
 
-## 3. Add new Task
+## 3. Add new ToDoApp.Task
 
 If the user pressed (2), he will start a process of adding a new
 task into the list of tasks.
 
 * Firstly, user will have to insert task title:
->Name of Task:
-* Secondly user will assign this Task to a Project:
+>Name of ToDoApp.Task:
+* Secondly user will assign this ToDoApp.Task to a Project:
 >Name of Project
 * Lastly, user will need to correct the due date in correct format. 
 >Due date? (MM-dd-yyyy)
@@ -71,13 +71,13 @@ until the user enters "Due Date" in correct format.
 
 ## 4. Edit Menu
 
-Upon pressing (3) in Main Menu, user will be given following options: 
+Upon pressing (3) in ToDoApp.Main Menu, user will be given following options: 
 
 > Press (1) for removing items from the list
 > Press (2) for marking tasks as done
 > Press (3) for updating tasks
 
-* If 0 is pressed, user will go back to Main Menu
+* If 0 is pressed, user will go back to ToDoApp.Main Menu
 
 * If user presses (1), the following message will appear.
 
@@ -89,7 +89,7 @@ Upon pressing (3) in Main Menu, user will be given following options:
 > Enter the number in front of the task you would like to delete
 
 When user does not enter any of the number displayed, appropriate message will be displayed until he enters valiable number: 
->Task with selected index does not exist. Select number in front of task again:
+>ToDoApp.Task with selected index does not exist. Select number in front of task again:
 
 When he selects valiable number, task will get removed. 
 
@@ -117,11 +117,11 @@ Update menu looks like this:
 > Press (3) for editing due date of a task
 
 ALl options are based on the same principle. Firstly, list of tasks will appear with indexes. Based on the selected index from the user, he/she will be able to change appropriate field. 
-If 0 is pressed, user will go back to Main Menu
+If 0 is pressed, user will go back to ToDoApp.Main Menu
 
 ## 5. Save and Quit
 
-If the user pressed (4) in Main Menu, the ToDo list will be saved in a file (This file will then be loaded when user starts the program from the beginning). Once the file is saved, program prints the following message and stops executing: 
+If the user pressed (4) in ToDoApp.Main Menu, the ToDo list will be saved in a file (This file will then be loaded when user starts the program from the beginning). Once the file is saved, program prints the following message and stops executing: 
 
 > You have quit the application, your TO-DO list is saved.
 > TASKS SAVED:

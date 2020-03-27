@@ -1,3 +1,7 @@
+package ToDoApp;
+
+import ToDoApp.Task;
+import ToDoApp.ToDoList;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
