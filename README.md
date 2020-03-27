@@ -23,8 +23,8 @@ This was an individual project during Software Development Academy.
 
 ## User Manual 
 
-The user manual for this project can be found [HERE](https://git.2020.school/irenej_bozovicar/ip/-/blob/master/USER_MANUAL.md) 
+The user manual for this project can be found [HERE](https://github.com/PireIre/ToDoList---Java/blob/master/USER_MANUAL.md) 
 
 ## Class Diagram
  
-![](https://git.2020.school/irenej_bozovicar/ip/-/raw/master/Class%20Diagram.png?raw=true "Class Diagram for ToDo Application")
+![](https://raw.githubusercontent.com/PireIre/ToDoList---Java/master/Class%20Diagram.png?raw=true "Class Diagram for ToDo Application")
