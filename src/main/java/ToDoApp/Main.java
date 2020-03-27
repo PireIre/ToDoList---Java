@@ -1,3 +1,5 @@
+package ToDoApp;
+
 import java.io.IOException;
 
 /**
@@ -18,7 +20,7 @@ import java.io.IOException;
 
 /**
  *  Main routine. Starts the application and
- *  oops until user quits the application.
+ *  loops until user quits the application.
  */
 
 public class Main {

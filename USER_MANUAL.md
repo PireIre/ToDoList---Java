@@ -89,7 +89,7 @@ Upon pressing (3) in Main Menu, user will be given following options:
 > Enter the number in front of the task you would like to delete
 
 When user does not enter any of the number displayed, appropriate message will be displayed until he enters valiable number: 
->Task with selected index does not exist. Select number in front of task again:
+> Task with selected index does not exist. Select number in front of task again:
 
 When he selects valiable number, task will get removed. 
 

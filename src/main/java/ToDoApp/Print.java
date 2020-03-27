@@ -1,3 +1,5 @@
+package ToDoApp;
+
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.List;
@@ -251,7 +253,7 @@ public class Print {
 
     public void printSortingOptions() {
         System.out.println("Here you can print list sorted by:");
-        System.out.println("(1): Print ALL");
+        System.out.println("(1): Show all");
         System.out.println("(2): All tasks that are PENDING");
         System.out.println("(3): All tasks that are DONE");
         System.out.println("(4): Print task by PROJECT:");

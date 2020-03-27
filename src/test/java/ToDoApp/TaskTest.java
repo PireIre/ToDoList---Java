@@ -1,3 +1,7 @@
+package ToDoApp;
+
+import ToDoApp.Status;
+import ToDoApp.Task;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
