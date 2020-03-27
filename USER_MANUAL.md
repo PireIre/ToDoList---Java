@@ -25,7 +25,7 @@ If user selects an option that does not exist, a following message is displayed:
 
 > You have not entered a viable option. Let's try this again. 
 
-if the user presses:
+If the user presses:
 
 * 1: A Show menu is Displayed, which allows the user to sort 
 list of tasks any way that is preferred 
@@ -47,7 +47,8 @@ If user pressed (1), the show menu is displayed:
 > (4): Print task by PROJECT:
 > (5): Due Date
 
-List is printed in an order selected by the user. 
+List is printed in an order selected by the user.
+(If 0 is pressed, user will go back to Main Menu)
 
 Once list has been order, and once user presses Enter, the application returns to main menu. 
 
@@ -56,7 +57,7 @@ Once list has been order, and once user presses Enter, the application returns t
 If the user pressed (2), he will start a process of adding a new
 task into the list of tasks.
 
-* Firsly, user will have to insert task title:
+* Firstly, user will have to insert task title:
 >Name of Task:
 * Secondly user will assign this Task to a Project:
 >Name of Project
@@ -75,6 +76,8 @@ Upon pressing (3) in Main Menu, user will be given following options:
 > Press (1) for removing items from the list
 > Press (2) for marking tasks as done
 > Press (3) for updating tasks
+
+* If 0 is pressed, user will go back to Main Menu
 
 * If user presses (1), the following message will appear.
 
@@ -113,7 +116,8 @@ Update menu looks like this:
 > Press (2) for editing project name of a specific task
 > Press (3) for editing due date of a task
 
-ALl options are based on the same principle. Firstly, list of tasks will appear with indexes. Based on the selected index from the user, he/she will be able to change appropraite field. 
+ALl options are based on the same principle. Firstly, list of tasks will appear with indexes. Based on the selected index from the user, he/she will be able to change appropriate field. 
+If 0 is pressed, user will go back to Main Menu
 
 ## 5. Save and Quit
 

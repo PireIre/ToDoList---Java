@@ -7,11 +7,11 @@ import java.util.Scanner;
 /**
  * This class is part of the ToDo application.
  * ToDo is a very simple, text based todo list application.
- *
+ * <p>
  * This class bring everything together and deals with main functionality
  * of the program.
  *
- * @author  Irenej Bozovicar
+ * @author Irenej Bozovicar
  * @version 2020.03.26
  */
 
@@ -34,8 +34,8 @@ public class Display {
         fileSave = new FileHandler();
         sdf = new SimpleDateFormat("MM-dd-yyyy");
 
-       FileHandler fileHandler = new FileHandler();
-       toDoList.setToDoList(fileHandler.loadFromFile());
+        FileHandler fileHandler = new FileHandler();
+        toDoList.setToDoList(fileHandler.loadFromFile());
         printer = new Print(toDoList.getToDoList());
     }
 
@@ -115,7 +115,7 @@ public class Display {
         }
 
         Date date = new Date();
-        String strDate= sdf.format(date);
+        String strDate = sdf.format(date);
         try {
             task.setCreatedDate(sdf.parse(strDate));
         } catch (ParseException e) {
@@ -144,16 +144,22 @@ public class Display {
 
     public void getTaskNumberAndChangeItToDone() {
 
-        System.out.println("What task do you want to mark as done?");
+        System.out.println("What task do you want to mark as done? \n ");
         printer.printOnlyIndexAndNameOfTask();
-        System.out.println("Enter the number in front of the task");
+        System.out.println("\n Enter the number in front of the task that you want to mark DONE (0 -> return to Menu)");
         Task searched;
 
         while (true) {
             try {
                 int getTaskByNumber = Integer.parseInt(userInput());
-                searched = toDoList.getTaskInToDo(getTaskByNumber - 1);
-                break;
+
+                if (getTaskByNumber != 0) {
+                    searched = toDoList.getTaskInToDo(getTaskByNumber - 1);
+                    break;
+                } else {
+                    response();
+                }
+
             } catch (Exception e) {
                 printer.printIndexOutOfReach();
             }
@@ -170,13 +176,17 @@ public class Display {
     public void removeTask() {
         System.out.println("What of the below project do you want to delete? \n");
         printer.printOnlyIndexAndNameOfTask();
-        System.out.println("\n Enter the number in front of the task you would like to delete");
+        System.out.println("\n Enter the number in front of the task you would like to delete (0 -> return to Menu)");
 
         while (true) {
             try {
                 int removeProjectByNumber = Integer.parseInt(userInput());
-                toDoList.remove(removeProjectByNumber - 1);
-                break;
+                if (removeProjectByNumber != 0) {
+                    toDoList.remove(removeProjectByNumber - 1);
+                    break;
+                } else {
+                    response();
+                }
             } catch (Exception e) {
                 printer.printIndexOutOfReach();
             }
@@ -196,6 +206,9 @@ public class Display {
         // get their name
         printer.printUpdateOptions();
         switch (userInput()) {
+            case "0":
+                response();
+                break;
             case "1":
                 editName();
                 break;
@@ -216,16 +229,21 @@ public class Display {
      */
 
     public void editName() {
-        System.out.println("Here you can edit a name for one of your tasks:");
+        System.out.println("Here you can edit a name for one of your tasks:\n ");
         printer.printOnlyIndexAndNameOfTask();
-        System.out.println("Enter the number in front of the task which name you want to switch");
+        System.out.println("\n Enter the number in front of the task which name you want to switch (0 -> Return to Menu)");
         Task searched;
 
         while (true) {
             try {
                 int getTitleByNumber = Integer.parseInt(userInput());
-                searched = toDoList.getTaskInToDo(getTitleByNumber - 1);
-                break;
+
+                if (getTitleByNumber != 0) {
+                    searched = toDoList.getTaskInToDo(getTitleByNumber - 1);
+                    break;
+                } else {
+                    response();
+                }
             } catch (Exception e) {
                 printer.printIndexOutOfReach();
             }
@@ -242,16 +260,23 @@ public class Display {
      */
 
     public void editProject() {
-        System.out.println("Here you can edit a name of a project that your task is assigned to");
+        System.out.println("Here you can edit a name of a project that your task is assigned to\n ");
         printer.printIndexAndNameAndProjectOfTask();
-        System.out.println("Enter the number in front of the task you want to switch the project to");
+        System.out.println("\n Enter the number in front of the task you want to switch the project to (0 -> Return to Menu) ");
         Task searched;
 
         while (true) {
             try {
                 int getProjectByNumber = Integer.parseInt(userInput());
-                searched = toDoList.getTaskInToDo(getProjectByNumber - 1);
-                break;
+
+                if(getProjectByNumber != 0){
+                    searched = toDoList.getTaskInToDo(getProjectByNumber - 1);
+                    break;
+                }
+                else{
+                    response();
+                }
+
             } catch (Exception e) {
                 printer.printIndexOutOfReach();
             }
@@ -268,12 +293,14 @@ public class Display {
      */
 
     public void editDate() {
-        System.out.println("Here you can edit due date of one of below tasks: ");
+        System.out.println("Here you can edit due date of one of below tasks: \n ");
         printer.printIndexAndNameAndDueDateOfTask();
-        System.out.println("Enter the number in front of the task you want to switch due date");
+        System.out.println("\n Enter the number in front of the task you want to switch due date (0 -> Return to Menu)");
 
         try {
             int getProjectByNumber = Integer.parseInt(userInput());
+
+            if(getProjectByNumber != 0){
             Task searched = toDoList.getTaskInToDo(getProjectByNumber - 1);
             System.out.println("Enter new due date of task " + searched.getTitle() + " below (MM-dd-yyyy)");
 
@@ -285,10 +312,11 @@ public class Display {
                     printer.printWrongDateFormat();
                 }
             }
-            System.out.println(searched.getTitle() + " Due Date is set to " + sdf.format(searched.getDueDate()));
-        }
-
-        catch (NumberFormatException e) {
+            System.out.println(searched.getTitle() + " Due Date is set to " + sdf.format(searched.getDueDate()));}
+            else{
+                response();
+            }
+        } catch (NumberFormatException e) {
             printer.printIndexOutOfReach();
             editDate();
         }
@@ -305,6 +333,9 @@ public class Display {
         printer.printEditTaskOptions();
 
         switch (userInput()) {
+            case "0":
+                response();
+                break;
             case "1":
                 removeTask();
                 break;
@@ -329,6 +360,9 @@ public class Display {
         printer.printSortingOptions();
 
         switch (userInput()) {
+            case "0":
+                response();
+                break;
             case "1":
                 printer.printEntireList();
                 break;
